@@ -25,7 +25,7 @@ namespace tests
 
 
 
-            Assert.Equal(7,bookRepository.getAll().Count);
+            Assert.Equal(7, bookRepository.getAll().Count);
 
         }
 
@@ -86,6 +86,14 @@ namespace tests
         {
             Assert.NotNull(bookRepository.getByNameAndAuthor("Verity", "Collin Hoover"));
         }
+
+        [Fact]
+
+        public void testIsBook()
+        {
+            Assert.True(bookRepository.isBookByNameAndAuthor("Verity", "Collin Hoover"));
+        }
+        
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace libraryView.Forms
 {
-    partial class FrmSearch
+    partial class FrmOptions
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@ namespace libraryView.Forms
         {
             this.SuspendLayout();
             // 
-            // FrmSearch
+            // FrmDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FrmSearch";
-            this.Text = "FrmSearch";
-            this.Load += new System.EventHandler(this.FrmSearch_Load);
+            this.Name = "FrmDelete";
+            this.Text = "FrmDelete";
+            this.Load += new System.EventHandler(this.FrmDelete_Load);
             this.ResumeLayout(false);
 
         }

@@ -10,7 +10,7 @@ namespace libraryManager
             BookRepo repo = new BookRepo();
 
 
-            Console.WriteLine(repo.getAll().Count);
+            repo.updateDateById(1, DateTime.Parse("09-12-2002"));
         }
     }
 }

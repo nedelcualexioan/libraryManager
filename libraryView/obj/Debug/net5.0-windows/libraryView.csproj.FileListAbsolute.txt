@@ -47,5 +47,4 @@ W:\Documents\SQL\libraryManager\libraryView\bin\Debug\net5.0-windows\libraryMana
 W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.csproj.CopyComplete
 W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.Forms.FrmCreate.resources
 W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.Forms.MockupCreate.resources
-W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.Forms.FrmSearch.resources
-W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.Forms.FrmDelete.resources
+W:\Documents\SQL\libraryManager\libraryView\obj\Debug\net5.0-windows\libraryView.Forms.FrmOptions.resources

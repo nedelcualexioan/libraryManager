@@ -26,7 +26,7 @@ namespace libraryView.Forms
 
         private Button btnDone;
 
-        public FrmCreate(BookRepo repo)
+        public FrmCreate(BookRepo repo, string action, Book book = null)
         {
             InitializeComponent();
 
@@ -102,8 +102,43 @@ namespace libraryView.Forms
                 Cursor = Cursors.Hand
             };
 
-            btnDone.Click += (s, e) => btnDone_Click(s, e, repo);
+            if (action == "create")
+            {
+                btnDone.Click += (s, e) => btnDone_Click(s, e, repo);
+            }
+            else if (action == "update")
+            {
+                btnDone.Click += (s, e) => btnUpdate_Click(s, e, repo, book.Id);
 
+                txtName.Text = book.BookName;
+
+                txtAuthor.Text = book.Author;
+
+                txtDate.Text = book.CreatedAt.ToString("yyyy-MM-dd");
+            }
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e, BookRepo repo, int id)
+        {
+            Regex regex = new Regex(@"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$");
+
+            if (!String.IsNullOrWhiteSpace(txtName.Text) && !String.IsNullOrWhiteSpace(txtAuthor.Text) &&
+                regex.IsMatch(txtDate.Text) == true)
+            {
+                repo.updateNameById(id, txtName.Text);
+                repo.updateAuthorById(id, txtAuthor.Text);
+                repo.updateDateById(id, DateTime.Parse(txtDate.Text));
+
+                MessageBox.Show("Actualizari realizate cu succes", "Info", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Campuri goale sau invalide", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e, BookRepo repo)

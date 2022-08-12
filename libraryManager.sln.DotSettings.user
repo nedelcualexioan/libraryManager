@@ -44,6 +44,20 @@
         &lt;Project Location="W:\Documents\SQL\libraryManager\tests" Presentation="&amp;lt;tests&amp;gt;" /&gt;&#xD;
         &lt;Namespace&gt;tests&lt;/Namespace&gt;&#xD;
       &lt;/And&gt;&#xD;
+      &lt;And&gt;&#xD;
+        &lt;TestAncestor&gt;&#xD;
+          &lt;TestId&gt;xUnit::9EF2F832-45E3-4BDA-AF05-1135CFD82C3E::net5.0::tests.RepoTest.testGetByNameAndAuthor&lt;/TestId&gt;&#xD;
+        &lt;/TestAncestor&gt;&#xD;
+        &lt;Project Location="W:\Documents\SQL\libraryManager\tests" Presentation="&amp;lt;tests&amp;gt;" /&gt;&#xD;
+        &lt;Namespace&gt;tests&lt;/Namespace&gt;&#xD;
+      &lt;/And&gt;&#xD;
+      &lt;And&gt;&#xD;
+        &lt;TestAncestor&gt;&#xD;
+          &lt;TestId&gt;xUnit::9EF2F832-45E3-4BDA-AF05-1135CFD82C3E::net5.0::tests.RepoTest.testGetByAuthor&lt;/TestId&gt;&#xD;
+        &lt;/TestAncestor&gt;&#xD;
+        &lt;Project Location="W:\Documents\SQL\libraryManager\tests" Presentation="&amp;lt;tests&amp;gt;" /&gt;&#xD;
+        &lt;Namespace&gt;tests&lt;/Namespace&gt;&#xD;
+      &lt;/And&gt;&#xD;
     &lt;/Or&gt;&#xD;
   &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -7,13 +7,10 @@
     <Compile Update="Forms\FrmCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FrmDelete.cs">
+    <Compile Update="Forms\FrmOptions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FrmHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\FrmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MockupCreate.cs">

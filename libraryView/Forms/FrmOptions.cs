@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,17 +13,18 @@ using libraryManager;
 
 namespace libraryView.Forms
 {
-    public partial class FrmSearch : Form
+    public partial class FrmOptions : Form
     {
+
         private Label lblName;
         private TextBox txtName;
 
         private Label lblAuthor;
         private TextBox txtAuthor;
 
-        private Button btnSearch;
+        private Button btnNext;
 
-        public FrmSearch(BookRepo repo)
+        public FrmOptions(BookRepo repo, string action)
         {
             InitializeComponent();
 
@@ -62,19 +65,36 @@ namespace libraryView.Forms
                 Location = new Point(12, 97)
             };
 
-            btnSearch = new Button
+            btnNext = new Button
             {
                 Parent = this,
                 Size = new Size(89, 37),
                 Location = new Point(475, 117),
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 1, BorderColor = Color.DarkGray },
-                Text = "Cauta",
                 ForeColor = Color.LightGray,
                 Cursor = Cursors.Hand
             };
 
-            btnSearch.Click += (s, e) => btnSearch_Click(s, e, repo);
+            if (action == "delete")
+            {
+                btnNext.Text = "Sterge";
+
+                btnNext.Click += (s, e) => btnDelete_Click(s, e, repo);
+            }
+            else if (action == "search")
+            {
+                btnNext.Text = "Cauta";
+
+                btnNext.Click += (s, e) => btnSearch_Click(s, e, repo);
+            }
+            else if(action == "update")
+            {
+                btnNext.Text = "Continua";
+
+                btnNext.Click += (s, e) => btnUpdate_Click(s, e, repo);
+            }
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e, BookRepo repo)
@@ -134,7 +154,44 @@ namespace libraryView.Forms
             this.Close();
         }
 
-        private void FrmSearch_Load(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e, BookRepo repo)
+        {
+            if (String.IsNullOrWhiteSpace(txtName.Text) == false && String.IsNullOrWhiteSpace(txtAuthor.Text) == false)
+            {
+
+                repo.deleteByDetails(txtName.Text, txtAuthor.Text);
+
+                MessageBox.Show("Stergere initiata", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Campuri invalide", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e, BookRepo repo)
+        {
+            if (repo.isBookByNameAndAuthor(txtName.Text, txtAuthor.Text))
+            {
+                FrmCreate update = new FrmCreate(repo, "update",
+                    repo.getByNameAndAuthor(txtName.Text, txtAuthor.Text));
+
+                this.Hide();
+
+                update.Closed += (s, args) => this.Close();
+                update.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nu a fost gasita nicio inregistrare care sa corespunda detaliilor oferite", "Eroare",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmDelete_Load(object sender, EventArgs e)
         {
 
         }

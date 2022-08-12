@@ -37,25 +37,34 @@ namespace libraryView.Panels
             btnSearch.Click += (s, e) => BtnSearch_Click(s, e, repo);
 
             btnDelete.Click += (s, e) => BtnDelete_Click(s, e, repo);
+
+            btnUpdate.Click += (s, e) => BtnUpdate_Click(s, e, repo);
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e, BookRepo repo)
+        {
+            FrmOptions update = new FrmOptions(repo, "update");
+
+            update.ShowDialog();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e, BookRepo repo)
         {
-            FrmDelete del = new FrmDelete(repo);
+            FrmOptions del = new FrmOptions(repo, "delete");
 
             del.ShowDialog();
         }
 
         private void BtnAdd_Click(object sender, EventArgs e, BookRepo repo)
         {
-            FrmCreate add = new FrmCreate(repo);
+            FrmCreate add = new FrmCreate(repo, "create");
 
             add.ShowDialog();
         }
 
         private void BtnSearch_Click(object sender, EventArgs e, BookRepo repo)
         {
-            FrmSearch search = new FrmSearch(repo);
+            FrmOptions search = new FrmOptions(repo, "search");
 
             search.ShowDialog();
         }

@@ -115,5 +115,19 @@ namespace libraryManager
             db.SaveData(sql, new { id, author }, connectionString);
         }
 
+        public void updateDateById(int id, DateTime created_at)
+        {
+            string sql = "UPDATE book SET created_at = @created_at WHERE id = @id";
+
+            db.SaveData(sql, new { id, created_at }, connectionString);
+        }
+
+        public bool isBookByNameAndAuthor(string book_name, string author)
+        {
+            string sql = "SELECT * FROM book WHERE book_name = @book_name AND author = @author";
+
+            return db.LoadData<Book, dynamic>(sql, new { book_name, author }, connectionString).Count != 0;
+        }
+
     }
 }
