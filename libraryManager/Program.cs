@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace libraryManager
 {
@@ -6,7 +7,10 @@ namespace libraryManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BookRepo repo = new BookRepo();
+
+
+            Console.WriteLine(repo.getAll().Count);
         }
     }
 }

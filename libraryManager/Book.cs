@@ -7,14 +7,26 @@ namespace libraryManager
         private int id;
         private String book_name;
         private String author;
-        private String created_at;
+        private DateTime created_at;
 
-        public Book(int id, string bookName, string author, string createdAt)
+        public Book(int id, string bookName, string author, DateTime created_at)
         {
             this.id = id;
             book_name = bookName;
             this.author = author;
-            created_at = createdAt;
+            this.created_at = created_at;
+        }
+
+        public Book()
+        {
+
+        }
+
+        public Book(string book_name, string author, DateTime created_at)
+        {
+            this.book_name = book_name;
+            this.author = author;
+            this.created_at = created_at;
         }
 
         public int Id
@@ -27,8 +39,7 @@ namespace libraryManager
         {
             if (obj is Book b)
             {
-                if (b.id.Equals(id) && b.book_name.Equals(book_name) && b.author.Equals(author) &&
-                    b.created_at.Equals(created_at))
+                if (b.book_name.Equals(book_name) && b.author.Equals(author))
                     return true;
             }
 
@@ -41,8 +52,8 @@ namespace libraryManager
 
             text += "ID: " + id + "\n";
             text += "Book name: " + book_name + "\n";
-            text += "Author: " + author + "\n:";
-            text += "Created at: " + created_at + "\n";
+            text += "Author: " + author + "\n";
+            text += "Created at: " + created_at.ToShortDateString() + "\n";
 
             return text;
         }
@@ -59,7 +70,7 @@ namespace libraryManager
             set => author = value;
         }
 
-        public string CreatedAt
+        public DateTime CreatedAt
         {
             get => created_at;
             set => created_at = value;
